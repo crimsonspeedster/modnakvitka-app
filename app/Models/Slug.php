@@ -1,0 +1,20 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
+
+class Slug extends Model
+{
+    protected $fillable = [
+        'slug',
+        'entity_id',
+        'entity_type',
+        'lang_id',
+    ];
+
+    public function entity (): MorphTo {
+        return $this->morphTo(null, 'entity_type', 'entity_id');
+    }
+}
