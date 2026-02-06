@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('coupons', function (Blueprint $table) {
             $table->id();
             $table->string('code')->unique();
+            $table->decimal('percentage', 10, 2)->default(0);
             $table->timestamps();
         });
     }

@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('recipient_phone');
             $table->date('delivery_date')->useCurrent();
             $table->string('delivery_time');
+            $table->string('delivery_address')->nullable();
             $table->boolean('is_recipient_address_knowing')->default(false);
             $table->string('text_in_postcard')->nullable();
             $table->unsignedBigInteger('coupon_id')->nullable();
