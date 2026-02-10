@@ -23,21 +23,21 @@ class SeoSeeder extends Seeder
         foreach ($pages as $page_id) {
             Seo::factory()->create([
                 'entity_id' => $page_id,
-                'entity_type' => 'Page',
+                'entity_type' => 'App\Models\Page',
             ]);
         }
 
         foreach ($products as $product_id) {
             Seo::factory()->create([
                 'entity_id' => $product_id,
-                'entity_type' => 'Product',
+                'entity_type' => 'App\Models\Product',
             ]);
         }
 
         foreach ($productCategories as $product_category_id) {
             Seo::factory()->create([
                 'entity_id' => $product_category_id,
-                'entity_type' => 'ProductCategory',
+                'entity_type' => 'App\Models\ProductCategory',
             ]);
         }
     }

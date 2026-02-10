@@ -24,7 +24,8 @@ class ProductCategory extends Model
             'entity',
             'entity_type',
             'entity_id',
-        );
+        )
+            ->where('lang_id', app('lang_id'));
     }
 
     public function products (): BelongsToMany {

@@ -2,9 +2,12 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Attributes\Scope;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Notifications\Notifiable;
 
@@ -21,13 +24,20 @@ class Product extends Model
         'published_at',
     ];
 
+    protected $casts = [
+        'is_on_sale' => 'boolean',
+        'price' => 'float',
+        'sale_price' => 'float',
+    ];
+
     public function slug (): MorphOne {
         return $this->morphOne(
             Slug::class,
             'entity',
             'entity_type',
             'entity_id',
-        );
+        )
+            ->where('lang_id', app('lang_id'));
     }
 
     public function categories (): BelongsToMany {
@@ -46,5 +56,15 @@ class Product extends Model
             'product_id',
             'product_attribute_id',
         );
+    }
+
+    public function translation(): HasOne {
+        return $this->hasOne(ProductTranslations::class)
+            ->where('lang_id', app('lang_id'));
+    }
+
+    #[Scope]
+    protected function scopePublished (Builder $query): Builder {
+        return $query->where('status', 'published');
     }
 }

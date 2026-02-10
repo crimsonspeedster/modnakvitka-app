@@ -28,7 +28,7 @@ class SlugSeeder extends Seeder
                 Slug::factory()->create([
                     'lang_id' => $lang_id,
                     'entity_id' => $page_id,
-                    'entity_type' => 'Page',
+                    'entity_type' => 'App\Models\Page',
                     'slug' => 'page--'.$page_id.'--lang--'.$lang_id,
                 ]);
             }
@@ -37,7 +37,7 @@ class SlugSeeder extends Seeder
                 Slug::factory()->create([
                     'lang_id' => $lang_id,
                     'entity_id' => $product_id,
-                    'entity_type' => 'Product',
+                    'entity_type' => 'App\Models\Product',
                     'slug' => 'product--'.$product_id.'--lang--'.$lang_id,
                 ]);
             }
@@ -46,7 +46,7 @@ class SlugSeeder extends Seeder
                 Slug::factory()->create([
                     'lang_id' => $lang_id,
                     'entity_id' => $product_category_id,
-                    'entity_type' => 'ProductCategory',
+                    'entity_type' => 'App\Models\ProductCategory',
                     'slug' => 'product_category--'.$product_category_id.'--lang--'.$lang_id,
                 ]);
             }
