@@ -26,12 +26,18 @@ class Order extends Model
         'delivery_address',
         'is_recipient_address_knowing',
         'text_in_postcard',
-        'coupon_id',
+        'coupon',
+    ];
+
+    protected $casts = [
+        'delivery_date' => 'date',
     ];
 
     public function items(): HasMany {
         return $this->hasMany(
             OrderItem::class,
+            'order_id',
+            'id'
         );
     }
 }

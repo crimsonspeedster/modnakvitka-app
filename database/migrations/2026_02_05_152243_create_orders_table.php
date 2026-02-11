@@ -27,10 +27,8 @@ return new class extends Migration
             $table->string('delivery_address')->nullable();
             $table->boolean('is_recipient_address_knowing')->default(false);
             $table->string('text_in_postcard')->nullable();
-            $table->unsignedBigInteger('coupon_id')->nullable();
+            $table->string('coupon')->nullable();
             $table->timestamps();
-
-            $table->foreign('coupon_id')->references('id')->on('coupons')->onDelete('cascade');
         });
     }
 

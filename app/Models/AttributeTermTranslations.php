@@ -17,6 +17,15 @@ class AttributeTermTranslations extends Model
     ];
 
     public function attributeTerm(): BelongsTo {
-        return $this->belongsTo(AttributeTerm::class);
+        return $this->belongsTo(
+            AttributeTerm::class,
+            'attribute_term_id',
+            'id'
+        );
+    }
+
+    public function lang(): BelongsTo
+    {
+        return $this->belongsTo(Langs::class);
     }
 }

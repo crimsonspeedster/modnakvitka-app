@@ -5,6 +5,7 @@ namespace Database\Factories;
 use App\Models\Order;
 use App\Models\OrderItem;
 use App\Models\Product;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -34,7 +35,7 @@ class OrderFactory extends Factory
             'customer_phone' => $this->faker->phoneNumber(),
             'recipient_name' => $this->faker->name(),
             'recipient_phone' => $this->faker->phoneNumber(),
-            'delivery_date' => $this->faker->date(),
+            'delivery_date' => Carbon::parse($this->faker->date()),
             'delivery_time' => $this->faker->time(),
             'delivery_address' => $delivery_address,
             'is_recipient_address_knowing' => $is_recipient_address_knowing,

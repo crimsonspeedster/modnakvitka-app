@@ -21,4 +21,9 @@ class SeoTranslations extends Model
     public function seo(): BelongsTo {
         return $this->belongsTo(SEO::class);
     }
+
+    public function lang(): BelongsTo
+    {
+        return $this->belongsTo(Langs::class);
+    }
 }

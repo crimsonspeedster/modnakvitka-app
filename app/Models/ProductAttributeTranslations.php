@@ -17,6 +17,15 @@ class ProductAttributeTranslations extends Model
     ];
 
     public function productAttribute (): BelongsTo {
-        return $this->belongsTo(ProductAttribute::class);
+        return $this->belongsTo(
+            ProductAttribute::class,
+            'attribute_id',
+            'id'
+        );
+    }
+
+    public function lang(): BelongsTo
+    {
+        return $this->belongsTo(Langs::class, 'lang_id', 'id');
     }
 }

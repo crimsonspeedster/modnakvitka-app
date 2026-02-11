@@ -20,4 +20,9 @@ class PageTranslations extends Model
     public function page(): BelongsTo {
         return $this->belongsTo(Page::class);
     }
+
+    public function lang(): BelongsTo
+    {
+        return $this->belongsTo(Langs::class);
+    }
 }

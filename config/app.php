@@ -123,4 +123,8 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+    // Dev NOVA seeder info
+    'dev_password' => env('DEV_PASS', '123456'),
+    'dev_email' => env('DEV_EMAIL', 'dev@gmail.com'),
+
 ];

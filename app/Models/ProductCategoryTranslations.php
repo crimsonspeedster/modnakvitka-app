@@ -24,4 +24,8 @@ class ProductCategoryTranslations extends Model
     public function productCategory(): BelongsTo {
         return $this->belongsTo(ProductCategory::class);
     }
+
+    public function lang(): BelongsTo {
+        return $this->belongsTo(Langs::class);
+    }
 }

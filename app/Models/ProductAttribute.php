@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class ProductAttribute extends Model
 {
@@ -28,5 +29,27 @@ class ProductAttribute extends Model
         return $this->hasMany(
             AttributeTerm::class
         );
+    }
+
+    public function translation(): HasOne {
+        return $this->hasOne(
+            ProductAttributeTranslations::class,
+            'attribute_id',
+            'id'
+        )
+            ->where('lang_id', app('lang_id'));
+    }
+
+    public function translations(): HasMany
+    {
+        return $this->hasMany(
+            ProductAttributeTranslations::class,
+            'attribute_id',
+            'id'
+        );
+    }
+
+    public function getTitleAttribute(): string {
+        return $this->translation?->title ?? '';
     }
 }

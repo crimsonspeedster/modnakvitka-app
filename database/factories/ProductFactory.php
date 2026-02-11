@@ -24,7 +24,7 @@ class ProductFactory extends Factory
         $sale_price = $this->faker->numberBetween($min = 0, $max = 3000);
 
         return [
-            'sku' => $this->faker->word(),
+            'sku' => $this->faker->unique()->word(),
             'price' => $this->faker->numberBetween($min = 100, $max = 5000),
             'sale_price' => $sale_price,
             'is_on_sale' => $sale_price > 0,

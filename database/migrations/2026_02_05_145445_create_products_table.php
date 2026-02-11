@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('status')->default('draft');
             $table->decimal('price', 10, 2)->default(0);
-            $table->decimal('sale_price', 10, 2)->nullable()->default(0);
+            $table->decimal('sale_price', 10, 2)->nullable();
             $table->boolean('is_on_sale')->default(false);
-            $table->string('sku')->nullable();
+            $table->string('sku')->unique()->nullable();
             $table->timestamp('published_at')->nullable();
             $table->timestamps();
         });

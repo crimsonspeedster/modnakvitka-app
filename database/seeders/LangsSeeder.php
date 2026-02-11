@@ -16,19 +16,25 @@ class LangsSeeder extends Seeder
         Langs::factory()->create([
             'name' => 'Українська',
             'code' => 'ua',
-            'locale' => 'uk'
+            'locale' => 'uk',
+            'is_active' => true,
+            'is_default' => true,
         ]);
 
         Langs::factory()->create([
             'name' => 'Русский',
             'code' => 'ru',
-            'locale' => 'ru-RU'
+            'locale' => 'ru-RU',
+            'is_active' => true,
+            'is_default' => false,
         ]);
 
         Langs::factory()->create([
             'name' => 'English',
             'code' => 'en',
-            'locale' => 'en-US'
+            'locale' => 'en-US',
+            'is_active' => true,
+            'is_default' => false,
         ]);
     }
 }
